@@ -1,0 +1,24 @@
+{
+  "name": "eaglesistemas/bigbluebutton",
+  "description": "BigBlueButton interface for Laravel framework.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Márlon Etiene",
+      "email": "marlon@eaglesistemas.com.br"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "EagleSistemas\\BigBlueButton\\": "src/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "bigbluebutton/bigbluebutton-api-php": "dev-master"
+  },
+  "minimum-stability": "dev"
+}
