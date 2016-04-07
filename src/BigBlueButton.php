@@ -2,8 +2,15 @@
 
 use BigBlueButton\BigBlueButton as BigBlue;
 use BigBlueButton\Parameters\CreateMeetingParameters;
+use BigBlueButton\Parameters\EndMeetingParameters;
+use BigBlueButton\Parameters\GetMeetingInfoParameters;
+use BigBlueButton\Parameters\IsMeetingRunningParameters;
 use BigBlueButton\Parameters\JoinMeetingParameters;
 
+/**
+ * Class BigBlueButton
+ * @package EagleSistemas\BigBlueButton
+ */
 class BigBlueButton extends BigBlue
 {
 
@@ -13,7 +20,8 @@ class BigBlueButton extends BigBlue
      *
      * [
      *      'meetingName' => 'Reunião de teste',# A name for the meeting.
-     *      'meetingId' => '99999',             # A meeting ID that can be used to identify this meeting by the 3rd-party application.
+     *      'meetingId' => '99999',             # A meeting ID that can be used to identify this meeting
+     *                                            by the 3rd-party application.
      *      'attendeePassword' => 'ap',         # Set to 'ap' and use 'ap' to join = no user pass required.
      *      'moderatorPassword' => 'mp',        # Set to 'mp' and use 'mp' to join = no user pass required.
      *      'autoStartRecording' =>  true,      # Automatically starts recording when first user joins.
@@ -63,5 +71,45 @@ class BigBlueButton extends BigBlue
             $arrayParams['password']
         );
         return $joinParams;
+    }
+
+    /**
+     * @param $meetingId
+     * @param $pwd
+     * @return GetMeetingInfoParameters
+     */
+    public function createMeetingInfoParameters($meetingId, $pwd)
+    {
+        return new GetMeetingInfoParameters($meetingId, $pwd);
+    }
+
+    /**
+     * @param $meetingId
+     * @param $pwd
+     * @return EndMeetingParameters
+     */
+    public function createEndMeetingParameters($meetingId, $pwd)
+    {
+        return new EndMeetingParameters($meetingId, $pwd);
+    }
+
+    /**
+     * @param $meetingId
+     * @return IsMeetingRunningParameters
+     */
+    public function createIsMeetingRunningParameters($meetingId)
+    {
+        return new IsMeetingRunningParameters($meetingId);
+    }
+
+    /**
+     * @param $meetingId
+     * @param $userName
+     * @param $userPwd
+     * @return JoinMeetingParameters
+     */
+    public function createJoinMeetingParameters($meetingId, $userName, $userPwd)
+    {
+        return new JoinMeetingParameters($meetingId, $userName, $userPwd);
     }
 }
