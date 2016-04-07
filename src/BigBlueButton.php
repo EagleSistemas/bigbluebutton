@@ -104,12 +104,11 @@ class BigBlueButton extends BigBlue
 
     /**
      * @param $meetingId
-     * @param $userName
      * @param $userPwd
      * @return JoinMeetingParameters
      */
-    public function createJoinMeetingParameters($meetingId, $userName, $userPwd)
+    public function createJoinMeetingParameters($meetingId, $userPwd)
     {
-        return new JoinMeetingParameters($meetingId, $userName, $userPwd);
+        return new GetMeetingInfoParameters($meetingId, $userPwd);
     }
 }
