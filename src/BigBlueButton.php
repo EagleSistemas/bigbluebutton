@@ -63,7 +63,7 @@ class BigBlueButton extends BigBlue
      *      'password'
      * ]
      */
-    public function getJoinMeetingParameters($arrayParams)
+    public function createJoinMeetingParameters($arrayParams)
     {
         $joinParams = new JoinMeetingParameters(
             $arrayParams['meetingId'],
@@ -100,15 +100,5 @@ class BigBlueButton extends BigBlue
     public function createIsMeetingRunningParameters($meetingId)
     {
         return new IsMeetingRunningParameters($meetingId);
-    }
-
-    /**
-     * @param $meetingId
-     * @param $userPwd
-     * @return JoinMeetingParameters
-     */
-    public function createJoinMeetingParameters($meetingId, $userPwd)
-    {
-        return new GetMeetingInfoParameters($meetingId, $userPwd);
     }
 }
